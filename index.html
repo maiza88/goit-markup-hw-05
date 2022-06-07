@@ -61,7 +61,9 @@
           Эффективные решения <br />
           для вашего бизнеса
         </h2>
-        <button type="button" class="button">Заказать услугу</button>
+        <button data-modal-open type="button" class="button">
+          Заказать услугу
+        </button>
       </section>
 
       <!-- Feature -->
@@ -127,10 +129,10 @@
           <h2 class="work-title">Чем мы занимаемся</h2>
           <ul class="work-list list">
             <li class="item">
-              <p class="work-list-name">Десктопные приложения</p>
               <a href=""
                 ><img src="./images/box1.jpg" alt="Ноутбук" width="370"
               /></a>
+              <p class="work-list-name">Десктопные приложения</p>
             </li>
 
             <li class="item">
@@ -448,5 +450,16 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-close-btn" data-modal-close>
+          <svg width="30" height="30">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

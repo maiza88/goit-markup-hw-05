@@ -15,6 +15,8 @@
   --header-border-bg: #ececec;
   --social-links-color: #afb1b8;
   --work-list-name-color: rgba(47, 48, 58, 0.8);
+  --overlay-color: rgba(33, 150, 243, 0.9);
+  --backdrop-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -456,7 +458,46 @@ header .container {
   height: 60px;
 }
 
-/* --------------------Footer----------------- */
+.backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop-color);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* --------------------Foot er----------------- */
 
 footer {
   background-color: var(--title-bg-color);
@@ -632,4 +673,33 @@ footer .container {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.9;
+}
+
+.project-picture-block {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-picture-overlay {
+  position: absolute;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: var(--overlay-color);
+}
+
+.project-overlay-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--primary-bg-color);
+}
+
+.project-list .item:hover .project-picture-overlay {
+  transform: translateY(0);
 }
